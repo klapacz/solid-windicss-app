@@ -28,6 +28,8 @@ export const App: Component = () => {
 
   return (
     <FloatingForm
+      title="Sign up"
+      form={form}
       actions={
         <>
           <Button type="reset" color="ghost">
@@ -36,8 +38,6 @@ export const App: Component = () => {
           <Button type="submit">Sign up</Button>
         </>
       }
-      title="Sign up"
-      form={form}
     >
       <TextField type="email" label="Email" name="email" />
       <TextField type="password" label="Password" name="password" />
