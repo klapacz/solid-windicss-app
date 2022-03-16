@@ -1,0 +1,27 @@
+import { Component } from "solid-js";
+import { ValidationMessage } from "@felte/reporter-solid";
+
+type TextFieldProps = {
+  type?: string;
+  name: string;
+  label: string;
+};
+
+export const TextField: Component<TextFieldProps> = (props) => {
+  return (
+    <div>
+      <label for={props.name} class="label">
+        <span class="label-text">{props.label}</span>
+      </label>
+      <input
+        type={props.type || "text"}
+        id={props.name}
+        name={props.name}
+        class="input input-bordered w-full"
+      />
+      <ValidationMessage for={props.name}>
+        {(message) => <span class="text-error">{message?.[0]}</span>}
+      </ValidationMessage>
+    </div>
+  );
+};
