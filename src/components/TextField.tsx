@@ -1,5 +1,6 @@
 import { Component } from "solid-js";
 import { ValidationMessage } from "@felte/reporter-solid";
+import { useI18n } from "@amoutonbrady/solid-i18n";
 
 type TextFieldProps = {
   type?: string;
@@ -8,6 +9,8 @@ type TextFieldProps = {
 };
 
 export const TextField: Component<TextFieldProps> = (props) => {
+  const [t] = useI18n();
+
   return (
     <div>
       <label for={props.name} class="label">
@@ -20,7 +23,9 @@ export const TextField: Component<TextFieldProps> = (props) => {
         class="input input-bordered w-full"
       />
       <ValidationMessage for={props.name}>
-        {(message) => <span class="text-error">{message?.[0]}</span>}
+        {(message) =>
+          message && <span class="text-error">{t(message[0])}</span>
+        }
       </ValidationMessage>
     </div>
   );

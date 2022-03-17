@@ -6,8 +6,11 @@ import { reporter } from "@felte/reporter-solid";
 import { Button } from "../components/Button";
 import { FloatingForm } from "../components/FloatingForm";
 import * as schemas from "../schemas";
+import { useI18n } from "@amoutonbrady/solid-i18n";
 
 export const Login: Component = () => {
+  const [t] = useI18n();
+
   const { form } = createForm({
     onSubmit: async (values) => {
       console.log(values);
@@ -18,22 +21,22 @@ export const Login: Component = () => {
 
   return (
     <FloatingForm
-      title="Sign up"
+      title={t("form.signUp")}
       form={form}
       actions={
         <>
           <Button type="reset" color="ghost">
-            Reset
+            {t("form.reset")}
           </Button>
-          <Button type="submit">Sign up</Button>
+          <Button type="submit">{t("form.signUp")}</Button>
         </>
       }
     >
-      <TextField type="email" label="Email" name="email" />
-      <TextField type="password" label="Password" name="password" />
+      <TextField type="email" label={t("form.email")} name="email" />
+      <TextField type="password" label={t("form.password")} name="password" />
       <TextField
         type="password"
-        label="Confirm Password"
+        label={t("form.passwordConfirm")}
         name="passwordConfirm"
       />
     </FloatingForm>
