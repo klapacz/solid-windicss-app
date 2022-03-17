@@ -4,6 +4,7 @@ import WindiCSS from "vite-plugin-windicss";
 import Icons from "unplugin-icons/vite";
 
 export default defineConfig({
+  base: process.env.BASE_URL || "/",
   plugins: [
     solidPlugin(),
     WindiCSS(),

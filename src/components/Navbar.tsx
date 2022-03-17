@@ -8,7 +8,7 @@ export type NavbarProps = {
 };
 
 const TranslationDropdown: Component = () => {
-  const [t, { locale }] = useI18n();
+  const [, { locale }] = useI18n();
 
   return (
     <div class="dropdown dropdown-end">
