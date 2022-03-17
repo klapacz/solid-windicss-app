@@ -1,6 +1,8 @@
 import { I18nProvider, useI18n } from "@amoutonbrady/solid-i18n";
 import { z } from "zod";
-import { Component } from "solid-js";
+import { Component, JSX } from "solid-js";
+import PolandFlag from "~icons/emojione/flag-for-poland";
+import UKFlag from "~icons/emojione/flag-for-united-kingdom";
 
 export const dict = {
   en: {
@@ -30,6 +32,24 @@ export const dict = {
       shortPassword: "Hasło musi mieć długość co najmniej 8 znaków",
       passwordMustMatch: "Hasło musi pasować",
     },
+  },
+};
+
+type Data = {
+  [key in keyof typeof dict]: {
+    icon: JSX.Element;
+    name: string;
+  };
+};
+
+export const data = {
+  en: {
+    icon: <UKFlag />,
+    name: "English",
+  },
+  pl: {
+    icon: <PolandFlag />,
+    name: "Polski",
   },
 };
 

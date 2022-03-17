@@ -1,6 +1,7 @@
 import { Component } from "solid-js";
 import { ValidationMessage } from "@felte/reporter-solid";
 import { useI18n } from "@amoutonbrady/solid-i18n";
+import "./TextField.css";
 
 type TextFieldProps = {
   type?: string;
