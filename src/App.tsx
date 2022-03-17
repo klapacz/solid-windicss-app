@@ -3,27 +3,17 @@ import { TextField } from "./components/TextField";
 import { createForm } from "@felte/solid";
 import { validator } from "@felte/validator-zod";
 import { reporter } from "@felte/reporter-solid";
-import { z } from "zod";
 import { Button } from "./components/Button";
 import { FloatingForm } from "./components/FloatingForm";
-
-const loginSchema = z
-  .object({
-    email: z.string().email(),
-    password: z.string().min(8),
-    passwordConfirm: z.string(),
-  })
-  .refine((d) => d.password === d.passwordConfirm, {
-    message: "password must match",
-    path: ["passwordConfirm"],
-  });
+import * as schemas from "./schemas";
 
 export const App: Component = () => {
   const { form } = createForm({
     onSubmit: async (values) => {
       console.log(values);
     },
-    extend: [validator({ schema: loginSchema as any }), reporter],
+    // HACK: validator doesn't accept `ZodEffects` type
+    extend: [validator({ schema: schemas.login as any }), reporter],
   });
 
   return (

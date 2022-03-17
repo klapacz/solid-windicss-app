@@ -12,6 +12,7 @@ export const Button: Component<ButtonProps> = (props) => (
     classList={{
       "btn-primary": !props.color,
       "btn-ghost": props.color === "ghost",
+      "hover:text-neutral-content": props.color === "ghost",
     }}
   >
     {props.children}
