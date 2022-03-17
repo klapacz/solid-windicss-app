@@ -10,7 +10,7 @@ import { I18nProvider } from "@amoutonbrady/solid-i18n";
 render(
   () => (
     <I18nProvider dict={dict} locale={getLanguage()}>
-      <Router>
+      <Router base={import.meta.env.BASE_URL}>
         <App />
       </Router>
     </I18nProvider>
