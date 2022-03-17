@@ -1,3 +1,4 @@
+import { Link } from "solid-app-router";
 import { Component, For } from "solid-js";
 import TranslateIcon from "~icons/mdi/translate";
 import { dict, createSetLanguage } from "../i18n";
@@ -35,9 +36,12 @@ const TranslationDropdown: Component = () => {
 export const Navbar: Component<NavbarProps> = (props) => (
   <div class="navbar bg-base-100 shadow z-60">
     <div class="navbar-start">
-      <a class="btn btn-ghost normal-case text-xl hover:text-neutral-content">
+      <Link
+        href="/"
+        class="btn btn-ghost normal-case text-xl hover:text-neutral-content"
+      >
         {props.title}
-      </a>
+      </Link>
     </div>
 
     <div class="navbar-end">
