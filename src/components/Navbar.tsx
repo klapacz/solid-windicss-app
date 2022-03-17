@@ -1,3 +1,4 @@
+import { useI18n } from "@amoutonbrady/solid-i18n";
 import { Link } from "solid-app-router";
 import { Component, For } from "solid-js";
 import TranslateIcon from "~icons/mdi/translate";
@@ -9,6 +10,8 @@ export type NavbarProps = {
 
 const TranslationDropdown: Component = () => {
   const setLanguage = createSetLanguage();
+  const [, { locale }] = useI18n();
+
   return (
     <div class="dropdown dropdown-end">
       <label
@@ -24,7 +27,14 @@ const TranslationDropdown: Component = () => {
         <For each={Object.keys(dict)}>
           {(lang) => (
             <li>
-              <button onClick={() => setLanguage(lang)}>{lang}</button>
+              <button
+                onClick={() => setLanguage(lang)}
+                classList={{
+                  active: locale() === lang,
+                }}
+              >
+                {lang}
+              </button>
             </li>
           )}
         </For>
