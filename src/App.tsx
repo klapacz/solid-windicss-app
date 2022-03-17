@@ -4,14 +4,14 @@ import { Navbar } from "./components/Navbar";
 import { routes } from "./routes";
 
 export const App: Component = () => {
-  const Routes = useRoutes(routes);
+	const Routes = useRoutes(routes);
 
-  return (
-    <div class="min-h-screen flex flex-col">
-      <Navbar title="Brand" />
-      <div class="flex-1 flex flex-col bg-base-200">
-        <Routes />
-      </div>
-    </div>
-  );
+	return (
+		<div class="min-h-screen flex flex-col">
+			<Navbar title="Brand" />
+			<div class="flex-1 flex flex-col bg-base-200">
+				<Routes />
+			</div>
+		</div>
+	);
 };

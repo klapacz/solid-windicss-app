@@ -1,0 +1,19 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["solid", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:solid/typescript",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "useTabs": true,
+        "tabWidth": 4,
+        "printWidth": 100
+      }
+    ]
+  }
+}
