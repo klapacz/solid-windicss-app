@@ -10,8 +10,8 @@ export type FloatingFormProps = {
 };
 
 export const FloatingForm: Component<FloatingFormProps> = (props) => (
-  <div class="flex justify-center items-center h-screen bg-base-200">
-    <div class="card w-96 bg-base-100 shadow-xl">
+  <div class="flex justify-center md:items-center h-screen bg-base-200">
+    <div class="card w-full max-w-md h-min m-4 bg-base-100 shadow-xl">
       <form ref={props.form} class="card-body">
         <h1 class="card-title text-3xl">{props.title}</h1>
         {props.children}
