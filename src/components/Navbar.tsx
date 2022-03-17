@@ -1,15 +1,13 @@
-import { useI18n } from "@amoutonbrady/solid-i18n";
 import { Component, For } from "solid-js";
 import TranslateIcon from "~icons/mdi/translate";
-import { dict } from "..";
+import { dict, createSetLanguage } from "../i18n";
 
 export type NavbarProps = {
   title: string;
 };
 
 const TranslationDropdown: Component = () => {
-  const [, { locale }] = useI18n();
-
+  const setLanguage = createSetLanguage();
   return (
     <div class="dropdown dropdown-end">
       <label
@@ -25,7 +23,7 @@ const TranslationDropdown: Component = () => {
         <For each={Object.keys(dict)}>
           {(lang) => (
             <li>
-              <button onClick={locale.bind(this, lang)}>{lang}</button>
+              <button onClick={() => setLanguage(lang)}>{lang}</button>
             </li>
           )}
         </For>
