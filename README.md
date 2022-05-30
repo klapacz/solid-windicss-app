@@ -1,6 +1,6 @@
 # [SolidJS](https://www.solidjs.com/) + [WindiCSS](https://windicss.org/) + [daisyUI](https://daisyui.com/)
 
-Simply app with only login route.
+Simple app with only login route.
 
 ## Used libs
 
